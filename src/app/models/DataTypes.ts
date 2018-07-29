@@ -1,19 +1,19 @@
-export class Class {
-  classID : string;
-  className : string;
-  studyGroupIDS: string[];
+export interface Class {
+  ID: string;
+  name : string;
+  studyGroupIDS?: string[];
 }
 
-export class StudyGroup {
-  ID : string;
+export interface StudyGroup {
+  ID: string;
+  ClassID : string;
   studyGroupName : string;
-  className : string;
   description : string;
   usersList : string[];
   userMessageList : string[];
 }
 
-export class User {
+export interface User {
   username : string;
   email : string;
   groupIDs: string[];

@@ -5,7 +5,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HomeComponent } from './home/home.component';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { RouterModule, Routes } from '@angular/router';
 import { AlertModule } from 'ngx-bootstrap';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -35,7 +35,7 @@ const appRoutes: Routes = [
     BrowserModule,
     AlertModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
