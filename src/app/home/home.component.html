@@ -1,5 +1,10 @@
-<ul>
+<!-- <ul>
   <li *ngFor="let class of classes">
     {{ class.className }}
   </li>
+</ul> -->
+<ul>
+    <li *ngFor="let item of classes | async">
+       {{ item | json }}
+    </li>
 </ul>

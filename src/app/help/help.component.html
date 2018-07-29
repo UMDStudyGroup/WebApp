@@ -1,3 +1,12 @@
 <p>
   Welcome to the help page!
 </p>
+
+<!-- <h1>{{ (item | async) }}</h1> -->
+
+
+<ul>
+    <li *ngFor="let item of classes | async">
+       {{ item | json }}
+    </li>
+</ul>
