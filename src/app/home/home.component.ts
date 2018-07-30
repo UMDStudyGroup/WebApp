@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   constructor(private classService: ClassService) {}
 
   ngOnInit() {
-    this.classService.addClass('CMSC 120')
+    // this.classService.addClass('CMSC 120')
     this.classService.addStudyGroup('CMSC 120', 'Anwar')
     // this.classes2 = [
     //   {

@@ -10,13 +10,16 @@ import { map } from 'rxjs/operators';
 export class ClassService {
 
   classesRef: AngularFirestoreCollection<Class>;
+  classRef: AngularFirestoreDocument<Class>;
+  oneClass: Observable<Class>;
   constructor(private afs: AngularFirestore) {
     this.classesRef = afs.collection<Class>('classes');
    }
 
   addClass(name: string): void {
-    name = name.toLowerCase();
+    name = name.toLowerCase().trim();
     this.afs.collection('classes', ref => ref.where('name', '==', name)).snapshotChanges().subscribe(res => {
+      //console.log(res)
       if (res.length > 0) {
         return false;
       } else {
@@ -32,14 +35,18 @@ export class ClassService {
   }
 
   addStudyGroup(className: string, studyGroupName: string): void {
-    // if (class) {
-    //
-    // } else {
-    //   addClass(className);
-    //   addStudyGroup(className, studyGroupName);
-    // }
-    //
-    // return false;
+    className = className.toLowerCase().trim();
+
+    var sgID = 'Anwar';
+    this.afs.collection('classes', ref => ref.where('name', '==', className)).snapshotChanges().subscribe(res => {
+      if(res.length > 0) {
+        const id = res[0].payload.doc.id;
+        //create studygroup and then get its id and use here instead of sgID
+        this.afs.doc<Class>('classes/'+id).update({
+          ['studyGroupIDs.' + sgID] : true
+        });
+      }
+    });
   }
 
 }

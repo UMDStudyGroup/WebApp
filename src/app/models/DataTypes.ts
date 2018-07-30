@@ -1,7 +1,7 @@
 export interface Class {
   ID: string;
   name : string;
-  studyGroupIDS?: string[];
+  studyGroupIDs?: {[studyGroupID: string] : boolean}; 
 }
 
 export interface StudyGroup {
