@@ -1,10 +1,7 @@
-<!-- <ul>
-  <li *ngFor="let class of classes">
-    {{ class.className }}
-  </li>
-</ul> -->
-<ul>
-    <li *ngFor="let item of classes | async">
-       {{ item | json }}
-    </li>
+<input type="text" [(ngModel)]="searchterm" (keydown)="search($event)">
+<ul *ngFor="let class of classes">
+  <li>{{class.class}}</li>
 </ul>
+<div *ngIf="classes?.length < 1">
+  <p>Sorry, no classes found</p>
+</div>

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Class } from '../../models/DataTypes';
-import { Observable, of } from 'rxjs'
+import { Observable } from 'rxjs/Rx'
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -41,5 +41,7 @@ export class ClassService {
     //
     // return false;
   }
+
+
 
 }
