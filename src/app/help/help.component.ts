@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ClassService } from '../services/class/class.service'
 import { Observable, of } from 'rxjs'
 import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from 'angularfire2/firestore';
-import { Class } from '../models/DataTypes';
+import { ClassData } from '../models/DataTypes';
 import { map } from 'rxjs/operators';
 
 @Component({

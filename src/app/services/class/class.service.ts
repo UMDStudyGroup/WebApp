@@ -1,52 +1,55 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from 'angularfire2/firestore';
-import { Class } from '../../models/DataTypes';
+import { ClassData } from '../../models/DataTypes';
 import { Observable, of } from 'rxjs'
-import { map } from 'rxjs/operators';
+import { map, first } from 'rxjs/operators';
+import { StudyGroupService } from '../studygroup/study-group.service'
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClassService {
 
-  classesRef: AngularFirestoreCollection<Class>;
-  classRef: AngularFirestoreDocument<Class>;
-  oneClass: Observable<Class>;
-  constructor(private afs: AngularFirestore) {
-    this.classesRef = afs.collection<Class>('classes');
+  classesRef: AngularFirestoreCollection<ClassData>;
+  classRef: AngularFirestoreDocument<ClassData>;
+
+  constructor(private afs: AngularFirestore, private studyGroupService: StudyGroupService) {
+    this.classesRef = afs.collection<ClassData>('classes');
    }
 
+
   addClass(name: string): void {
-    name = name.toLowerCase().trim();
+    name = name.toUpperCase().trim();
+
     this.afs.collection('classes', ref => ref.where('name', '==', name)).snapshotChanges().subscribe(res => {
-      //console.log(res)
       if (res.length > 0) {
         return false;
       } else {
         const id = this.afs.createId();
-        const temp : Class = { ID:id, name:name };
+        const temp : ClassData = { ID:id, name:name };
         this.classesRef.doc(id).set(temp);
       }
     });
   }
 
-  allClasses(): Observable<Class[]> {
+  allClasses(): Observable<ClassData[]> {
     return this.classesRef.valueChanges();
   }
 
-  addStudyGroup(className: string, studyGroupName: string): void {
-    className = className.toLowerCase().trim();
+  async addStudyGroup(className: string, studyGroupName: string): Promise<void> {
+    className = className.toUpperCase().trim();
 
-    var sgID = 'Anwar';
-    this.afs.collection('classes', ref => ref.where('name', '==', className)).snapshotChanges().subscribe(res => {
-      if(res.length > 0) {
-        const id = res[0].payload.doc.id;
-        //create studygroup and then get its id and use here instead of sgID
-        this.afs.doc<Class>('classes/'+id).update({
-          ['studyGroupIDs.' + sgID] : true
-        });
-      }
+    const oneClass = await this.afs.collection<ClassData>('classes', ref => ref.where('name', '==', className)).valueChanges().pipe(
+      first()
+    ).toPromise();
+
+    const studygroup = await this.studyGroupService.createOrFindStudyGroup(studyGroupName);
+
+    return this.afs.doc<ClassData>('classes/' + oneClass[0].ID).update({
+      ['studyGroupIDs.' + studygroup[0].ID] : true
     });
   }
+
+
 
 }
