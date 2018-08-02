@@ -1,10 +1,4 @@
-<!-- <ul>
-  <li *ngFor="let class of classes">
-    {{ class.className }}
-  </li>
-</ul> -->
-<ul>
-    <li *ngFor="let item of classes | async">
-       {{ item | json }}
-    </li>
-</ul>
+<pre class="card card-block card-header mb-3">Model: {{selected | json}}</pre>
+<input [(ngModel)]="selected"
+       [typeahead]="classNames"
+       class="form-control">

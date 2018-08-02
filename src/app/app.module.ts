@@ -21,6 +21,10 @@ import { HelpComponent } from './help/help.component';
 import { AuthService } from './services/auth/auth.service';
 import { AuthGuardService } from './services/auth/auth-guard.service';
 
+import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
+
+
+
 
 @NgModule({
   declarations: [
@@ -39,6 +43,7 @@ import { AuthGuardService } from './services/auth/auth-guard.service';
     BrowserModule,
     FormsModule,
     AlertModule.forRoot(),
+    TypeaheadModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule

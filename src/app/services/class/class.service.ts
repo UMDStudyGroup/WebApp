@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { ClassData } from '../../models/DataTypes';
-import { Observable, of } from 'rxjs'
+import { Observable, of } from 'rxjs';
 import { map, first } from 'rxjs/operators';
-import { StudyGroupService } from '../studygroup/study-group.service'
+import { StudyGroupService } from '../studygroup/study-group.service';
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +26,7 @@ export class ClassService {
         return false;
       } else {
         const id = this.afs.createId();
-        const temp : ClassData = { ID:id, name:name };
+        const temp: ClassData = { ID: id, name: name };
         this.classesRef.doc(id).set(temp);
       }
     });
