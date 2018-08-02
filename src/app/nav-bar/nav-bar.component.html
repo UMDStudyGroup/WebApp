@@ -7,5 +7,10 @@
       <li><a routerLink="/" routerLinkActive="active">Home</a></li>
       <li><a routerLink="/help" routerLinkActive="active">Help</a></li>
     </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+      <li *ngIf="authService.isLoggedIn()" ><a routerLink="/" (click)="authService.logout()">Logout</a></li>
+      <li *ngIf="!authService.isLoggedIn()"><a routerLink="/login">Login</a></li>
+    </ul>  
   </div>
 </nav>
