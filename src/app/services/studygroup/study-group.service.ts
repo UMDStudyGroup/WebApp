@@ -22,11 +22,10 @@ export class StudyGroupService {
     ).toPromise();
 
     if (studygroup.length == 0) {
-      const id = this.afs.createId();
-      const temp : StudyGroup = { ID:id, name:studyGroupName };
-      this.studyGroupRef.doc(id).set(temp);
+      this.create(studyGroupName)
 
-      studygroup = await this.afs.collection<StudyGroup>('studygroups', ref => ref.where('ID', '==', id)).valueChanges().pipe(
+      studygroup = await this.afs.collection<StudyGroup>('studygroups', ref => ref.where('studyGroupName', '==', studyGroupName)).valueChanges()
+      .pipe(
         first()
       ).toPromise();
     }
@@ -34,5 +33,15 @@ export class StudyGroupService {
       return studygroup
 
   }
+
+  create = function(studyGroupName) {
+    const id = this.afs.createId();
+    const temp : StudyGroup = { ID:id, name:studyGroupName };
+    this.studyGroupRef.doc(id).set(temp);
+  }
+
+
+  
+
 
 }
