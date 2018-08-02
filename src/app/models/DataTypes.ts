@@ -1,16 +1,16 @@
-export interface Class {
+export interface ClassData {
   ID: string;
   name : string;
-  studyGroupIDS?: string[];
+  studyGroupIDs?: {[studyGroupID: string] : boolean};
 }
 
 export interface StudyGroup {
   ID: string;
-  ClassID : string;
-  studyGroupName : string;
-  description : string;
-  usersList : string[];
-  userMessageList : string[];
+  ClassID? : string;
+  name : string;
+  description? : string;
+  usersList? : string[];
+  userMessageList? : string[];
 }
 
 export interface User {
