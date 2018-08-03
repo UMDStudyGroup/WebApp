@@ -22,6 +22,10 @@ import { AuthService } from './services/auth/auth.service';
 import { AuthGuardService } from './services/auth/auth-guard.service';
 import { ClassPageComponent } from './class-page/class-page.component';
 
+import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
+
+
+
 
 @NgModule({
   declarations: [
@@ -41,6 +45,7 @@ import { ClassPageComponent } from './class-page/class-page.component';
     BrowserModule,
     FormsModule,
     AlertModule.forRoot(),
+    TypeaheadModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule
