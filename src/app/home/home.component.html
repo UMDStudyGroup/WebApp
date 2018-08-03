@@ -1,4 +1,5 @@
 <pre class="card card-block card-header mb-3">Model: {{selected | json}}</pre>
 <input [(ngModel)]="selected"
        [typeahead]="classNames"
+       (keyup.enter) = "goClassPage(selected)"
        class="form-control">

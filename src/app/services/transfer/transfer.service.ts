@@ -16,6 +16,7 @@ export class TransferService {
   getData(){
     let temp = this.data;
     this.clearData();
+    console.log(temp);
     return temp;
   }
 
