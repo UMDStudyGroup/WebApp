@@ -1,4 +1,10 @@
-<pre class="card card-block card-header mb-3">Model: {{selected | json}}</pre>
-<input [(ngModel)]="selected"
-       [typeahead]="classNames"
-       class="form-control">
+
+  <div align="center">
+    <br>
+    <br>
+    <br>
+    <div class="text">Welcome Page</div>
+    <br>
+    <br>
+    <br>
+    <input class="button" placeholder="Search for a class" [(ngModel)]="selected" [typeahead]="classNames"/>

@@ -22,6 +22,7 @@ import { AuthService } from './services/auth/auth.service';
 import { AuthGuardService } from './services/auth/auth-guard.service';
 
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
+import { CreateStudyGroupComponent } from './create-study-group/create-study-group.component';
 
 
 
@@ -34,6 +35,7 @@ import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
     PageNotFoundComponent,
     HelpComponent,
     LoginComponent,
+    CreateStudyGroupComponent,
   ],
   imports: [
     RouterModule.forRoot(
