@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { StudyGroup } from '../models/DataTypes';
+import { StudyGroupService } from '../services/studygroup/study-group.service'
+import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from 'angularfire2/firestore';
+
 
 @Component({
   selector: 'app-class-page',
@@ -7,9 +11,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClassPageComponent implements OnInit {
 
-  constructor() { }
+  groups: StudyGroup[]
+  constructor(private studyGroupService: StudyGroupService) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    this.groups = await this.studyGroupService.getClassStudyGroups('CMSC 120');
+    console.log(this.groups);
   }
 
 }
