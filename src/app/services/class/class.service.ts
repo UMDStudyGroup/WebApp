@@ -43,13 +43,13 @@ export class ClassService {
       first()
     ).toPromise();
 
-    const studygroup = await this.studyGroupService.createOrFindStudyGroup(studyGroupName);
+    const studygroup = await this.studyGroupService.createOrFindStudyGroup(studyGroupName, oneClass[0].ID);
 
     return this.afs.doc<ClassData>('classes/' + oneClass[0].ID).update({
       ['studyGroupIDs.' + studygroup[0].ID] : true
     });
   }
 
-
+  getClassID
 
 }

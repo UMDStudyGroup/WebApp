@@ -1,0 +1,40 @@
+.study-group-list {
+    list-style-type: none;
+    padding-right: 15px;
+    padding-left: 15px;
+    border: 1px solid rgb(204, 204, 204);
+}
+
+.study-group-list li {
+    cursor: pointer;
+}
+
+.study-group-list-item {
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.study-group-list-item h2 {
+    margin-top: 0px;
+    font-family: 'Open Sans';
+    font-weight: 600;
+    font-size: 24px;
+    color: rgb(59, 59, 59);
+}
+
+.study-group-list-item p {
+    font-family: 'Open Sans';
+    font-size: 16px;
+    color: rgb(97, 97, 97);
+}
+
+.study-group-list hr {
+    border-top: 1px solid rgb(204, 204, 204);
+    padding-top: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.title {
+    text-align: center;
+}

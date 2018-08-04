@@ -20,6 +20,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { HelpComponent } from './help/help.component';
 import { AuthService } from './services/auth/auth.service';
 import { AuthGuardService } from './services/auth/auth-guard.service';
+import { ClassPageComponent } from './class-page/class-page.component';
 
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 
@@ -34,6 +35,7 @@ import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
     PageNotFoundComponent,
     HelpComponent,
     LoginComponent,
+    ClassPageComponent,
   ],
   imports: [
     RouterModule.forRoot(
