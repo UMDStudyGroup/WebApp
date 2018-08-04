@@ -1,6 +1,7 @@
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HelpComponent } from './help/help.component';
 import { HomeComponent } from './home/home.component';
+import { ClassPageComponent } from './class-page/class-page.component'
 import { Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 
@@ -12,5 +13,6 @@ export const appRoutes: Routes = [
     { path: '', pathMatch: 'full', component: HomeComponent },
     { path: 'login', component: LoginComponent },
     { path: 'help', component: HelpComponent },
+    { path: 'classpage', component: ClassPageComponent },
     { path: '**', component: PageNotFoundComponent }
   ];
