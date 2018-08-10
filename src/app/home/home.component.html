@@ -1,5 +1,16 @@
-<pre class="card card-block card-header mb-3">Model: {{selected | json}}</pre>
+<!-- <pre class="card card-block card-header mb-3">Model: {{selected | json}}</pre>
 <input [(ngModel)]="selected"
        [typeahead]="classNames"
        (keyup.enter) = "goClassPage(selected)"
-       class="form-control">
+       class="form-control"> -->
+
+  <div align="center">
+    <br>
+    <br>
+    <br>
+    <div class="text">Welcome Page</div>
+    <br>
+    <br>
+    <br>
+    <input class="button" placeholder="Search for a class" [(ngModel)]="selected" 
+    (keyup.enter) = "goClassPage(selected)" [typeahead]="classNames"/>

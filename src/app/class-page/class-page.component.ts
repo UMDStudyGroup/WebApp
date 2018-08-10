@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { StudyGroup } from '../models/DataTypes';
-import { StudyGroupService } from '../services/studygroup/study-group.service'
+import { StudyGroupService } from '../services/studygroup/study-group.service';
 import { TransferService } from '../services/transfer/transfer.service';
-import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from 'angularfire2/firestore';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -11,15 +11,24 @@ import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection 
   styleUrls: ['./class-page.component.css']
 })
 export class ClassPageComponent implements OnInit {
-  
-  className = this.transferService.getData();      
-  
+  maxSize = 5;
+  bigTotalItems = 175;
+  bigCurrentPage = 1;
+  // className: string;
+
+  // className = this.transferService.getData();
+  className = 'CMSC 120';
+
   groups: StudyGroup[];
-  constructor(private studyGroupService: StudyGroupService, private transferService: TransferService) { }
+  constructor(private studyGroupService: StudyGroupService, private transferService: TransferService,
+    private route: ActivatedRoute) { }
 
   async ngOnInit() {
-    this.groups = await this.studyGroupService.getClassStudyGroups(this.className);
-    console.log(this.groups);
+    this.route.params.subscribe(async params => {
+      // this.className = params['classname'];
+      this.groups = await this.studyGroupService.getClassStudyGroups(this.className);
+      console.log(this.groups);
+    });
   }
 
 }

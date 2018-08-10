@@ -3,7 +3,6 @@ import { ClassData } from '../models/DataTypes';
 import { ClassService } from '../services/class/class.service';
 import { TransferService } from '../services/transfer/transfer.service';
 import { Observable, of } from 'rxjs';
-import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Router } from '../../../node_modules/@angular/router';
 
 @Component({
@@ -30,9 +29,8 @@ export class HomeComponent implements OnInit {
   }
 
   goClassPage(val: string) {
-    if (this.classNames.indexOf(val) != -1) {
-      this.transferService.setData(val)
-      this.router.navigateByUrl('/classpage');
+    if (this.classNames.indexOf(val) !== -1) {
+      this.router.navigate(['/classpage', val]);
     }
   }
 
