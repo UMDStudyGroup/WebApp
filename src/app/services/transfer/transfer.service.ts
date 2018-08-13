@@ -9,17 +9,18 @@ export class TransferService {
 
   private data: string;
 
-  setData(data){
+  setData(data) {
     this.data = data;
   }
 
-  getData(){
-    let temp = this.data;
+  getData() {
+    const temp = this.data;
     this.clearData();
+    console.log(temp);
     return temp;
   }
 
-  clearData(){
+  clearData() {
     this.data = undefined;
   }
 

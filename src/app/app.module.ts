@@ -23,6 +23,7 @@ import { AuthGuardService } from './services/auth/auth-guard.service';
 import { ClassPageComponent } from './class-page/class-page.component';
 
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { CreateStudyGroupComponent } from './create-study-group/create-study-group.component';
 
 
@@ -50,7 +51,8 @@ import { CreateStudyGroupComponent } from './create-study-group/create-study-gro
     TypeaheadModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    PaginationModule.forRoot()
   ],
   providers: [AuthService, AuthGuardService],
   bootstrap: [AppComponent]
