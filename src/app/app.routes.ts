@@ -1,9 +1,10 @@
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HelpComponent } from './help/help.component';
 import { HomeComponent } from './home/home.component';
-import { ClassPageComponent } from './class-page/class-page.component'
+import { ClassPageComponent } from './class-page/class-page.component';
 import { Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './profile/profile.component';
 
 import { AuthGuardService } from './services/auth/auth-guard.service';
 
@@ -13,6 +14,7 @@ export const appRoutes: Routes = [
     { path: '', pathMatch: 'full', component: HomeComponent },
     { path: 'login', component: LoginComponent },
     { path: 'help', component: HelpComponent },
+    { path : 'profile', component : ProfileComponent, canActivate: [AuthGuardService] },
     { path: 'classpage/:classname', component: ClassPageComponent },
     { path: '**', component: PageNotFoundComponent }
   ];
