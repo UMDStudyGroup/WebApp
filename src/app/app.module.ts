@@ -24,7 +24,9 @@ import { ClassPageComponent } from './class-page/class-page.component';
 
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
-import { CreateStudyGroupComponent } from './create-study-group/create-study-group.component';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 
 
@@ -37,7 +39,6 @@ import { CreateStudyGroupComponent } from './create-study-group/create-study-gro
     PageNotFoundComponent,
     HelpComponent,
     LoginComponent,
-    CreateStudyGroupComponent,
     ClassPageComponent
   ],
   imports: [
@@ -45,6 +46,7 @@ import { CreateStudyGroupComponent } from './create-study-group/create-study-gro
       appRoutes,
       // { enableTracing: true } // <-- debugging purposes only
     ),
+    ModalModule.forRoot(),
     BrowserModule,
     FormsModule,
     AlertModule.forRoot(),

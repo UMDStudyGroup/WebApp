@@ -1,9 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { ClassData } from '../models/DataTypes';
 import { ClassService } from '../services/class/class.service';
 import { TransferService } from '../services/transfer/transfer.service';
 import { Observable, of } from 'rxjs';
 import { Router } from '../../../node_modules/@angular/router';
+import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from 'angularfire2/firestore'
+import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { BsModalService } from 'ngx-bootstrap/modal';
+
 
 @Component({
   selector: 'app-home',
