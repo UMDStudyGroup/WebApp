@@ -14,7 +14,7 @@ export const appRoutes: Routes = [
     { path: '', pathMatch: 'full', component: HomeComponent },
     { path: 'login', component: LoginComponent },
     { path: 'help', component: HelpComponent },
-    { path: 'classpage', component: ClassPageComponent },
     { path : 'profile', component : ProfileComponent, canActivate: [AuthGuardService] },
+    { path: 'classpage/:classname', component: ClassPageComponent },
     { path: '**', component: PageNotFoundComponent }
   ];

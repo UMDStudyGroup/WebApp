@@ -8,7 +8,6 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { RouterModule } from '@angular/router';
-import { AlertModule, PaginationModule } from 'ngx-bootstrap';
 
 import { FormsModule } from '@angular/forms';
 
@@ -23,6 +22,7 @@ import { AuthGuardService } from './services/auth/auth-guard.service';
 import { ClassPageComponent } from './class-page/class-page.component';
 
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
+import { AlertModule, PaginationModule } from 'ngx-bootstrap';
 import { CreateStudyGroupComponent } from './create-study-group/create-study-group.component';
 import { ProfileComponent } from './profile/profile.component';
 
@@ -53,7 +53,8 @@ import { ProfileComponent } from './profile/profile.component';
     TypeaheadModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    PaginationModule.forRoot()
   ],
   providers: [AuthService, AuthGuardService],
   bootstrap: [AppComponent]
