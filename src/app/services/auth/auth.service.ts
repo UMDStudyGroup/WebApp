@@ -17,7 +17,7 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class AuthService {
-  private user: Observable<firebase.User>;
+  public user: Observable<firebase.User>;
   private userDetails: firebase.User = null;
 
   constructor(private _firebaseAuth: AngularFireAuth, private router: Router) {
@@ -58,9 +58,14 @@ export class AuthService {
     return this.userDetails != null;
   }
 
+  get currentUserObservable(): any {
+    return this.user;
+  }
+
   logout() {
     this._firebaseAuth.auth.signOut().then((res) => this.router.navigate(['/']));
   }
+
 
 }
 

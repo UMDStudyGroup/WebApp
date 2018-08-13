@@ -8,7 +8,7 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { RouterModule } from '@angular/router';
-import { AlertModule } from 'ngx-bootstrap';
+import { AlertModule, PaginationModule } from 'ngx-bootstrap';
 
 import { FormsModule } from '@angular/forms';
 
@@ -24,6 +24,7 @@ import { ClassPageComponent } from './class-page/class-page.component';
 
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { CreateStudyGroupComponent } from './create-study-group/create-study-group.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -37,7 +38,8 @@ import { CreateStudyGroupComponent } from './create-study-group/create-study-gro
     HelpComponent,
     LoginComponent,
     CreateStudyGroupComponent,
-    ClassPageComponent
+    ClassPageComponent,
+    ProfileComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -47,6 +49,7 @@ import { CreateStudyGroupComponent } from './create-study-group/create-study-gro
     BrowserModule,
     FormsModule,
     AlertModule.forRoot(),
+    PaginationModule.forRoot(),
     TypeaheadModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
