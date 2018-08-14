@@ -26,7 +26,6 @@ import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { AlertModule, PaginationModule } from 'ngx-bootstrap';
-import { CreateStudyGroupComponent } from './create-study-group/create-study-group.component';
 import { ProfileComponent } from './profile/profile.component';
 
 
@@ -40,7 +39,6 @@ import { ProfileComponent } from './profile/profile.component';
     PageNotFoundComponent,
     HelpComponent,
     LoginComponent,
-    CreateStudyGroupComponent,
     ClassPageComponent,
     ProfileComponent
   ],

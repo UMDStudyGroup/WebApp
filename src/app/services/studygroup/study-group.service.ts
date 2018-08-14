@@ -35,11 +35,11 @@ export class StudyGroupService {
 
   }
 
-  create = function(studyGroupName, ID) {
+  create (studyGroupName, ID) {
     const id = this.afs.createId();
     const temp: StudyGroup = { ID: id, name: studyGroupName, ClassID: ID };
     return this.studyGroupRef.doc(id).set(temp);
-  };
+  }
 
   async createStudyGroup(studyGroupName: string, className: string): Promise<void> {
 
