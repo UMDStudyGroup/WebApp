@@ -22,6 +22,9 @@ import { AuthGuardService } from './services/auth/auth-guard.service';
 import { ClassPageComponent } from './class-page/class-page.component';
 
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
+import { ModalModule } from 'ngx-bootstrap/modal';
 import { AlertModule, PaginationModule } from 'ngx-bootstrap';
 import { CreateStudyGroupComponent } from './create-study-group/create-study-group.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -46,6 +49,7 @@ import { ProfileComponent } from './profile/profile.component';
       appRoutes,
       // { enableTracing: true } // <-- debugging purposes only
     ),
+    ModalModule.forRoot(),
     BrowserModule,
     FormsModule,
     AlertModule.forRoot(),

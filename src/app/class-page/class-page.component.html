@@ -1,6 +1,7 @@
 <div class="container">
   <div class="card main-card">
     <h1 class="title">{{ className }}</h1>
+    <button type="button" class="btn btn-primary" (click)="openModal(template)">Create a study group</button>
     <div *ngFor="let item of currGroups; let last = last;" class="card child-card">
       <div class="card-body">
         <h5 class="card-title">{{ item.name }}</h5>
@@ -28,3 +29,51 @@
 </div> -->
 
 
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Study Group Information</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+          <!-- Modal Body -->
+          <div class="modal-body">
+
+              <form role="form">
+                <div class="form-group">
+                  <label for="group_name">Name</label>
+                    <input type="group_name" class="form-control"
+                    id="group_name" placeholder="Enter Group Name"/>
+                </div>
+                <div class="form-group">
+                  <label for="group_description">Description</label>
+                    <input type="group_description" class="form-control"
+                        id="group_description" placeholder="Description"/>
+                </div>
+                <div class="form-group">
+                  <label for="group_users">Users List</label>
+                    <input type="group_users" class="form-control"
+                        id="group_users" placeholder="Users"/>
+                </div>
+                <div class="checkbox">
+                </div>
+              </form>
+
+
+          </div>
+
+          <!-- Modal Footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary">
+                Save changes
+            </button>
+            <button type="submit" class="btn btn-default">Submit</button>
+
+              <button type="button" class="btn btn-default"
+                      data-dismiss="modal">
+                          Close
+              </button>
+
+          </div>
+</ng-template>
