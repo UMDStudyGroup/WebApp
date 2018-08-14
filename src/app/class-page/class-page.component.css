@@ -51,4 +51,6 @@
     position: fixed;
     bottom: 0;
 }
-
+ .hover_description: hover{
+  display:block;
+}
