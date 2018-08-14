@@ -2,7 +2,7 @@
   <div class="card main-card">
     <h1 class="title">{{ className }}</h1>
     <button type="button" class="btn btn-primary" (click)="openModal(template)">Create a study group</button>
-    <div *ngFor="let item of groups; let last = last;" class="card child-card">
+    <div *ngFor="let item of currGroups; let last = last;" class="card child-card">
       <div class="card-body">
         <h5 class="card-title">{{ item.name }}</h5>
         <p class="card-text">{{ item.description }}</p>
@@ -11,7 +11,8 @@
     </div>
   </div>
   <div class="col-sm-3 col-centered fixed-bottom">
-    <pagination [totalItems]="bigTotalItems" [(ngModel)]="bigCurrentPage" [maxSize]="maxSize"></pagination>
+    <pagination [totalItems]="bigTotalItems" [itemsPerPage]= "numItemsPerPage" [(ngModel)]="bigCurrentPage" 
+    (pageChanged)="pageChanged($event)" [maxSize]="maxSize"></pagination>
   </div>
 </div>
 

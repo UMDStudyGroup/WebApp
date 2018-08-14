@@ -57,9 +57,10 @@ export class StudyGroupService {
     .pipe(
       first()
     ).toPromise();
+
     const studygroups = await this.afs.collection<StudyGroup>('studygroups', ref =>
     ref.where('ClassID', '==', oneClass[0].ID)).valueChanges()
-.pipe(
+    .pipe(
       first()
       // first() returns first instance of observable and unsubscribes
       // so this may be an issue to keep track of real-time studygroups
@@ -67,6 +68,5 @@ export class StudyGroupService {
 
     return studygroups;
   }
-
 
 }
